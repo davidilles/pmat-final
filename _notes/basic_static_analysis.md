@@ -148,5 +148,3 @@ http://www.iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com
 ![[Pasted image 20230216224901.png]]
 
 ![[Pasted image 20230216225002.png]]
-
-![[../_images/Pasted image 20230216225758.png]]

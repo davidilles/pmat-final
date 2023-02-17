@@ -30,9 +30,33 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "f10bfd47c19f1a6d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_notes/basic_dynamic_analysis.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "be9c6a8380510787",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_notes/basic_dynamic_analysis.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -98,7 +122,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_notes/basic_static_analysis.md",
+                "file": "_notes/basic_dynamic_analysis.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +139,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_notes/basic_static_analysis.md",
+                "file": "_notes/basic_dynamic_analysis.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +162,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_notes/basic_static_analysis.md"
+                "file": "_notes/basic_dynamic_analysis.md"
               }
             }
           }
@@ -159,8 +183,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "0ec8b12a6112d1ab",
+  "active": "be9c6a8380510787",
   "lastOpenFiles": [
+    "_notes/killswitch_analysis.md",
+    "_notes/basic_dynamic_analysis.md",
+    "_notes/basic_static_analysis.md",
     "README.md"
   ]
 }
