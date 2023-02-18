@@ -192,7 +192,7 @@ rule IsWannaCryMalware {
 }
 ```
 
-The above simple rule could effectively identify the specimen on the lab VM:
+The above simple rule matches any `PE` file that contains the killswitch domain, and during testing it could effectively identify the specimen on the lab VM:
 ```
 C:\Users\analyst\Desktop
 λ yara64 WannaDetect.yara -r C:\ 2>nul
