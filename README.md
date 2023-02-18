@@ -4,7 +4,7 @@
 
 ### Practical Malware Analysis & Triage Course Final Blog Post
 
-As part of my ongoing effort to continously learn something new (and hands-on) related to information security, I have recently completed the excellent course [Practical Malware Analysis & Triage](https://academy.tcm-sec.com/p/practical-malware-analysis-triage) offered by [TCM Security](https://academy.tcm-sec.com/) . The conclusion of this course is a final challenge that ask students to choose one of the malware samples covered during the course, write a triage report of the sample, write a set of detection (using [Yara](https://github.com/VirusTotal/yara)) rules for the sample,  and publish the findings. This post is my submission to satisfy this course closure requirement.
+As part of my ongoing effort to continously learn something new (and hands-on) related to information security, I have recently completed the excellent course [Practical Malware Analysis & Triage](https://academy.tcm-sec.com/p/practical-malware-analysis-triage) offered by [TCM Security](https://academy.tcm-sec.com/) . The conclusion of this course is a final challenge that ask students to choose one of the malware samples covered during the course, write a triage report of the sample, write a set of detection rules (using [Yara](https://github.com/VirusTotal/yara)) for the sample,  and publish the findings. This post is my submission to satisfy this course closure requirement.
 
 ### The WannaCry Ransomware Cryptoworm
 
@@ -146,4 +146,42 @@ This analysis confirms the hypothesis that the killswitch is genuine.
 
 ### Dynamic Analysis
 
+This behviour can also be confirmed dynamically, by loading the specimen into a debugger (`x32dbg` used as it is the course's preferred debugger) and following its execution.
+
+Placing a breakpoint on the `InternetOpenUrlA` system call:
+
+![](/_images/Pasted%20image%2020230217225735.png)
+
+The connection being made can be observed both in the debugger:
+
+![](/_images/Pasted%20image%2020230217225851.png)
+
+And in Wireshark:
+
+![](/_images/Pasted%20image%2020230217225950.png)
+
+Followed by the jump corresponding to the test (as a result of a successful connection):
+
+![](/_images/Pasted%20image%2020230217230144.png)
+
+The system calls `InternetCloseHandle`
+
+![](/_images/Pasted%20image%2020230217230221.png)
+
+![](/_images/Pasted%20image%2020230217230259.png)
+
+Followed by the execution returning from `main` to the entry point:
+
+![](/_images/Pasted%20image%2020230217230338.png)
+
+Leading to the `exit` of the program:
+
+![](/_images/Pasted%20image%2020230217230423.png)
+
+## Detection Rules
+
 //TODO
+
+## Conclusion
+
+// TODO
