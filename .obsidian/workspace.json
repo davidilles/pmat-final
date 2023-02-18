@@ -49,7 +49,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_notes/basic_dynamic_analysis.md",
+                "file": "_notes/killswitch_analysis.md",
                 "mode": "source",
                 "source": false
               }
@@ -203,9 +203,9 @@
   },
   "active": "bec50ebe12cc1df3",
   "lastOpenFiles": [
+    "_notes/killswitch_analysis.md",
     "_notes/basic_dynamic_analysis.md",
     "README.md",
-    "_notes/basic_static_analysis.md",
-    "_notes/killswitch_analysis.md"
+    "_notes/basic_static_analysis.md"
   ]
 }

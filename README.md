@@ -124,3 +124,6 @@ And (at first glance) does not exhibit any other significant activity.
 
 **This is an important realization. It suggests that the URL acts as a killswitch to the malware, however the lack of appearance of immidiate significant Indicators of Compromise does not mean that the malware is completely harmless in case the URL can be reached. It might only instruct the malware to be more stealthy, and further analysis is required to ensure that the suspected killswitch is indeed a killswitch.**
 
+## Investigating the Suspected Killswitch
+
+//TODO
