@@ -180,8 +180,25 @@ Leading to the `exit` of the program:
 
 ## Detection Rules
 
-//TODO
+Based on the uniqueness of the killswitch domain, a simple [Yara](https://github.com/VirusTotal/yara) rule to detect this malware can be as created as:
+
+```json
+rule IsWannaCryMalware {
+	strings:
+		$mz = "MZ"
+		$wannacry_domain = "iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea"
+	condition:
+		($mz at 0 and uint32(uint32(0x3C)) == 0x4550) and $wannacry_domain
+}
+```
+
+The above simple rule could effectively identify the specimen on the lab VM:
+```
+C:\Users\analyst\Desktop
+λ yara64 WannaDetect.yara -r C:\ 2>nul
+IsWannaCryMalware C:\\Users\analyst\Desktop\Ransomware.wannacry.exe
+```
 
 ## Conclusion
 
-// TODO
+The above analysis have demonstrated how simple techniques taught on the Practical Malware Analysis & Triage course could be leveraged to triage a real-life malware sample, identify the killswitch embedded within it, and confirm the killswitch to be genuine. 
