@@ -126,4 +126,24 @@ And (at first glance) does not exhibit any other significant activity.
 
 ## Investigating the Suspected Killswitch
 
+### Static Analysis
+
+To confirm the killswitch as a genuine one, the specimen can be loaded into a disassembler (`Cutter` was used for this analysis as it is the tool covered on the course) and the logic related to the URL can be observed. 
+
+The results are encouraging, as the URL appears immediately on the malware's `main` method before any other function call would take place:
+
+![](/_images/Pasted%20image%2020230217224923.png)  
+
+Also, no other action is taken by an application except system calls related to visiting the url (`InternetOpanA`, `InternetOpenURlA`), which calls are followed by a test on the success of the connection:
+
+![](/_images/Pasted%20image%2020230217224940.png)  
+
+Please note, that on the branch that corresponds to the test succeeding, no other function of the malware is called (except two `call esi` calls), and execution is returned from the `main` method, effectively stopping the application.
+
+In regards to the `call esi` instructions, it can be seen that these relate to the `InternetCloseHandle` system call to terminate the TCP connection.
+
+This analysis confirms the hypothesis that the killswitch is genuine.
+
+### Dynamic Analysis
+
 //TODO

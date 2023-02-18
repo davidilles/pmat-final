@@ -204,8 +204,8 @@
   "active": "bec50ebe12cc1df3",
   "lastOpenFiles": [
     "_notes/killswitch_analysis.md",
-    "_notes/basic_dynamic_analysis.md",
     "README.md",
+    "_notes/basic_dynamic_analysis.md",
     "_notes/basic_static_analysis.md"
   ]
 }
