@@ -85,5 +85,42 @@ After this initial look, there is a strong suspicion that the specimen:
 
 It is time to detonate it and see what it does!
 
+## Detonating the Sample
 
+### A Note on the Detonations 
+
+When handling dangerous malware (such as WannaCry) safety is paramount. For this analysis two Virtual Machines (VMs) were leveraged:
+- A Windows-based host with the [FLARE VM](https://github.com/mandiant/flare-vm) toolkit installed, and
+- A Linux-based host with the [REMnux](https://remnux.org/) toolkit.
+None of the VMs had internet connectivity or connectivity to other VMs or the Host system.
+The analysis was primarily carried out on the Windows host, with the Linux host used as an internet simulator (using the package `inetsim`). 
+
+When it is noted that internet was simulated, `inetsim` was configured to provide the services: `DNS`, `HTTP`, `SMTP`, `HTTPS`, `POP3`, `FTPS`, `SMTPS`, `POP3S`, `FTP`, and to respond to any query.
+(e.g.: an arbitrary `HTTP` or `DNS` request to something like `http://doesnotexist.really` would return results successfully) 
+
+The detonations described below were done by running the specimen as `Administrator`. The malware did produce differences in behaviour when ran as a regular user, but these findings were excluded to focus on the killswitch detection aspects of the analysis.
+
+### Detonation without network connectivity
+
+The malware when detonated without network connectivity almost immidiately produces significant indicators of compromise. For example.
+
+A popup informing the user that theire files are encrypted:
+
+![](/_images/Pasted%20image%2020230217222326.png)  
+
+Or the presence of the executable `@WanaDecryptor@.exe` on the desktop and the extension `.WNCRY` added to the end of the user's files:
+
+![](/_images/Pasted%20image%2020230217222450.png)  
+
+This confirms the suspicion that the specimen is ransomware, but can be surprising if our assumption of the strange URL was of a command and control server.
+
+### Detonation with Internet Simulation
+
+The malware when detonated with internet simulation can be observed to connect the URL identified above (`http://www.iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com`):
+
+![](/_images/Pasted%20image%2020230217224137.png)  
+
+And (at first glance) does not exhibit any other significant activity.
+
+**This is an important realization. It suggests that the URL acts as a killswitch to the malware, however the lack of appearance of immidiate significant Indicators of Compromise does not mean that the malware is completely harmless in case the URL can be reached. It might only instruct the malware to be more stealthy, and further analysis is required to ensure that the suspected killswitch is indeed a killswitch.**
 
