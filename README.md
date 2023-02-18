@@ -182,7 +182,7 @@ Leading to the `exit` of the program:
 
 Based on the uniqueness of the killswitch domain, a simple [Yara](https://github.com/VirusTotal/yara) rule to detect this malware can be as created as:
 
-```json
+```yar
 rule IsWannaCryMalware {
 	strings:
 		$mz = "MZ"
